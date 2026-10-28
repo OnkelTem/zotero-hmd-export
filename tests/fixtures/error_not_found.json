@@ -1,0 +1,8 @@
+{
+  "jsonrpc": "2.0",
+  "error": {
+    "code": -32602,
+    "message": "NoSuchKey123 not found"
+  },
+  "id": null
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Thinking, Fast and Slow",
+  "citationKey": "Kahneman2011Thinking",
+  "itemKey": "AAAA1111",
+  "key": "AAAA1111",
+  "libraryID": 1,
+  "itemType": "book",
+  "uri": "http://zotero.org/users/local/00000000/items/AAAA1111",
+  "select": "zotero://select/library/items/AAAA1111",
+  "attachments": [
+    {
+      "path": "/home/user/Zotero/storage/BBBB2222/Thinking, Fast and Slow.pdf",
+      "uri": "http://zotero.org/users/local/00000000/items/BBBB2222",
+      "title": "PDF",
+      "itemType": "attachment",
+      "select": "zotero://select/library/items/BBBB2222",
+      "key": null
+    }
+  ]
+}

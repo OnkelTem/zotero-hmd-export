@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zotero-hmd-export"
+version = "0.1.0"
+description = "Export Zotero annotations as hierarchical, list-based Markdown."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+zotero-hmd-export = "zotero_hmd_export.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["zotero_hmd_export*"]
+
+[tool.setuptools.package-data]
+zotero_hmd_export = ["templates/*"]

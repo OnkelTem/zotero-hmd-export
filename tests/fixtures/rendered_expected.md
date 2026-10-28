@@ -1,0 +1,8 @@
+- ## Chapter 1. Two systems
+  - ==Section opener==
+  - A first supporting passage for the example export.
+    - ==Why this matters==
+  - A second supporting passage with two tags.
+    - ==Another comment<br><br>Second paragraph of the comment==
+- ## Chapter 2. A second heading
+  - Closing passage without a comment.

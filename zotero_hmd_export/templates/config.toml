@@ -1,0 +1,302 @@
+# zotero-hmd-export project config
+#
+# Uncomment optional settings or change the active defaults below.
+#
+# TOML keys or values containing # or commas must be quoted.
+
+[project]
+
+# Setting: "output_dir"
+#
+# Final pages directory. It must already exist.
+#
+# Example:
+#   output_dir = "/path/to/logseq/graph/pages"
+#
+output_dir = $OUTPUT_DIR
+
+# Setting: "books"
+#
+# Path to the book TOML list, relative to this config file.
+#
+# Example:
+#   books = "books.toml"
+#
+books = $BOOKS
+
+# Setting: "file_name"
+#
+# Annotations filename template.
+# A book-specific file_name in books.toml overrides this.
+#
+# Allowed placeholders: {author}, {title}, {citekey}.
+#
+# A used placeholder with an empty value aborts the export.
+#
+# Example:
+#   file_name = "books___{title}.md"
+# This will create Logseq pages such as [[books/{title}]].
+#
+file_name = $FILE_NAME
+
+# Setting: "include_properties"
+#
+# - true: add citationKey:: and zotero-item:: properties at the top of each page.
+# - false: omit them.
+#
+include_properties = $INCLUDE_PROPERTIES_VALUE
+
+# Setting: "on_existing"
+#
+# - "overwrite": replace changed pages.
+# - "error": abort when a different page already exists.
+#
+on_existing = $ON_EXISTING_VALUE
+
+[zotero]
+
+# Better BibTeX (BBT) is a Zotero plugin that exposes Zotero data through a
+# local JSON-RPC API. This tool uses BBT as its bridge to Zotero.
+# See: https://retorque.re/zotero-better-bibtex/installation/
+#
+# Setting: "bbt_port"
+#
+# Port on which BBT exposes its JSON-RPC API.
+# Change only if BBT uses a different port.
+#
+# bbt_port = 23119
+
+[tree]
+
+# We can create a tree-like hierarchy from annotations using Markdown blocks:
+#
+# - level1
+#   - level2
+#     - ...
+#
+# We can use the following info for assigning annotations to levels:
+#
+# - annotation type (highlight or underline)
+# - annotation color (predefined Zotero colors)
+# - annotation tags.
+
+# Settings: "level1" - "level6" and "rank1", "rank2", ...
+#
+# The values are rules. Rule format is:
+#
+# 1. Annotation type: h (highlight) or u (underline).
+# 2. Color: Yellow, Red, Green, Blue, Purple, Magenta, Orange, or Gray.
+# 3. Tag: #<tag>.
+#
+# Example:
+#   level1=h,Yellow
+#   level2=h,Blue
+# This will put yellow highlights on the first level, and blue highlights on the second
+#
+# Rules priority
+#
+# 1. A rule with a tag beats a rule without a tag.
+# 2. Within the same tier, more conditions win.
+# 3. Ties use the latest matching tag, then later config order.
+# 4. If no tree rule matches, the annotation is content at the current level.
+#
+# Sample hierarchy
+#
+# This sample uses highlights and orders them by predefined Zotero colors. By highlighting
+# book titles you can recreate the book structure in your annotations.
+#
+# level1 = "h,Yellow"
+# level2 = "h,Red"
+# level3 = "h,Green"
+# level4 = "h,Blue"
+# level5 = "h,Purple"
+#
+# Relative levels
+#
+# rankN rules continue the hierarchy below the last absolute levelN.
+# The number is an ordering, not absolute depth:
+#
+# - same rank = sibling;
+# - higher rank = one level deeper than the nearest lower active rank;
+# - lower rank = pop back to that ancestor;
+# - a new absolute levelN resets the relative stack.
+#
+# If no absolute levelN has matched yet, the base is 0. A relative rule
+# can therefore work without any absolute rule. Rank numbers may have gaps;
+# rank1, rank3 and rank2 still produce consecutive depths.
+#
+# Example: yellow highlights are absolute headings, red underlines are
+# their relative children. Two red underlines in a row are siblings.
+#
+# level1 = "h,Yellow"
+# rank1 = "u,Red"
+# rank2 = "u,Green"
+#
+
+[format]
+
+# Visual format
+#
+# Only one selector wins.
+# It does not change nesting (see [tree]).
+#
+# Selector format:
+#   <selector> = "<format>"
+#
+# Allowed formats:
+#
+#   - normal — fallback when no selector matches; resets formatting when its selector wins
+#   - h1 … h6 — Markdown headers
+#   - bold, italic, bold_italic, strikethrough, code, underline - Markdown standard formatting
+#   - pug(...) — wraps the text in HTML span element with classes, ids and styles.
+#
+# Pug reference: https://pugjs.org/language/attributes.html
+#
+# Selectors priority
+#
+# Format selectors use the same priority as tree rules.
+#
+# Source metadata and tag output are configured in [source] and [tags].
+#
+# Examples
+#
+# Red = "bold"
+# "u,Blue,#tag" = 'pug(.note(style="color:blue"))'
+#
+# Sample heading formats
+#
+# Use with the tree sample above to turn its five levels into h2…h6 headings.
+#
+# "h,Yellow" = "h2"
+# "h,Red" = "h3"
+# "h,Green" = "h4"
+# "h,Blue" = "h5"
+# "h,Purple" = "h6"
+
+[source]
+
+# Source metadata for annotations.
+#
+# Source output is disabled by default: scope = "none".
+#
+# scope:
+#   - "none": no source output;
+#   - "all": every annotation is eligible;
+#   - "level": only annotations matched by an absolute levelN rule;
+#   - "tree": annotations matched by any [tree] rule (levelN or rankN).
+#
+# when:
+#   - "block": every eligible annotation;
+#   - "page_change": only when the page differs from the last page whose
+#     source was emitted.
+#
+# min_page_gap:
+#   - 0: any page change;
+#   - 10: at least 10 numeric pages between source lines.
+#   Non-numeric page labels use any page change.
+#
+# placement:
+#   - "inline": append to the block line;
+#   - "next_line": a continuation line inside the same block.
+#
+# template supports {label}; page_label supports {page}.
+# link = false prints the label without a Markdown link.
+#
+# Examples:
+#
+# scope = "level"
+# when = "page_change"
+# min_page_gap = 0
+# placement = "next_line"
+# template = "— {label}"
+# page_label = "p. {page}"
+#
+# scope = "all"
+# when = "page_change"
+# min_page_gap = 10
+# placement = "next_line"
+# template = "— {label}"
+# page_label = "p. {page}"
+#
+scope = "none"
+when = "page_change"
+min_page_gap = 0
+link = true
+placement = "next_line"
+template = "— {label}"
+page_label = "{page}"
+
+[tags]
+
+# Tag output filtering.
+#
+# Tags are not emitted by default.
+#
+# default:
+#   - false: emit only tags listed in show;
+#   - true: emit all tags except those listed in hide.
+#
+# Tag names may be written with or without a leading #.
+# Hidden tags still participate in [tree], [format], [logseq.collapse],
+# and [source].
+#
+# Examples:
+#
+# default = true
+# hide = ["bold", "heading"]
+#
+# default = false
+# show = ["important"]
+#
+default = false
+
+[logseq.collapse]
+
+# Collapsed blocks in Logseq.
+#
+# This is a Logseq block property, not a text format and not a tree level.
+# A block is collapsed only when it has a nested block or a non-empty comment.
+# Blocks without children never receive the property, even when a rule matches.
+#
+# Setting "default":
+#
+#   - false — collapse only blocks matched by a rule with true;
+#   - true  — collapse every block with children unless a rule sets false.
+#
+# Every other key is a predicate with the same syntax and priority as [tree]
+# and [format]. A tag rule beats a rule without a tag, and a more specific
+# false rule can keep a block open when the default is true.
+#
+# Examples:
+#
+# default = false
+# "h,Yellow" = true
+# "h,Red" = true
+# "h,Yellow,#keep-open" = false
+# "#collapse-me" = true
+
+[logseq.background]
+
+# Background colors for Logseq blocks.
+#
+# mode:
+#   - "off": no colors;
+#   - "annotation": color every annotation by its Zotero color;
+#   - "level": color [tree]-matched blocks by computed nesting level.
+#
+# palette is required for mode = "level" and cycles when the level exceeds
+# the palette length. Supported Logseq colors:
+# yellow, red, green, blue, purple, pink, orange, gray.
+#
+# Zotero colors map to Logseq as:
+# Yellow->yellow, Red->red, Green->green, Blue->blue,
+# Purple->purple, Magenta->pink, Orange->orange, Gray->gray.
+#
+# Examples:
+#
+# mode = "annotation"
+#
+# mode = "level"
+# palette = ["yellow", "red", "green", "blue", "purple", "pink", "orange", "gray"]
+#
+mode = "off"

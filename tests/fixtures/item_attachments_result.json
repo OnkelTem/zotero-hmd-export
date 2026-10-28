@@ -1,0 +1,159 @@
+[
+  {
+    "open": "zotero://open-pdf/library/items/BBBB2222",
+    "path": "/home/user/Zotero/storage/BBBB2222/Thinking, Fast and Slow.pdf",
+    "annotations": [
+      {
+        "key": "HEADING1",
+        "version": 0,
+        "itemType": "annotation",
+        "parentItem": "BBBB2222",
+        "annotationType": "highlight",
+        "annotationAuthorName": "",
+        "annotationText": "Chapter 1. Two systems",
+        "annotationComment": "Section opener",
+        "annotationColor": "#ffd400",
+        "annotationPageLabel": "7",
+        "annotationSortIndex": "00004|000058|00216",
+        "annotationPosition": {
+          "pageIndex": 4,
+          "rects": [
+            [
+              98.1,
+              603.063,
+              539.62,
+              625.211
+            ]
+          ]
+        },
+        "tags": [],
+        "relations": {},
+        "dateAdded": "2026-10-23T00:31:40Z",
+        "dateModified": "2026-10-23T00:33:35Z"
+      },
+      {
+        "key": "CONTENT1",
+        "version": 0,
+        "itemType": "annotation",
+        "parentItem": "BBBB2222",
+        "annotationType": "underline",
+        "annotationAuthorName": "",
+        "annotationText": "A first supporting passage for the example export.",
+        "annotationComment": "Why this matters",
+        "annotationColor": "#ffd400",
+        "annotationPageLabel": "7",
+        "annotationSortIndex": "00004|000580|00400",
+        "annotationPosition": {
+          "pageIndex": 4,
+          "rects": [
+            [
+              98.1,
+              520.06,
+              412.4,
+              540.2
+            ]
+          ]
+        },
+        "tags": [
+          {
+            "tag": "example"
+          }
+        ],
+        "relations": {},
+        "dateAdded": "2026-10-23T00:34:02Z",
+        "dateModified": "2026-10-23T00:35:10Z"
+      },
+      {
+        "key": "CONTENT2",
+        "version": 0,
+        "itemType": "annotation",
+        "parentItem": "BBBB2222",
+        "annotationType": "underline",
+        "annotationAuthorName": "",
+        "annotationText": "A second supporting passage with two tags.",
+        "annotationComment": "Another comment\n\nSecond paragraph of the comment",
+        "annotationColor": "#ffd400",
+        "annotationPageLabel": "8",
+        "annotationSortIndex": "00005|000461|00200",
+        "annotationPosition": {
+          "pageIndex": 5,
+          "rects": [
+            [
+              98.1,
+              410.5,
+              438.7,
+              431.9
+            ]
+          ]
+        },
+        "tags": [
+          {
+            "tag": "example"
+          },
+          {
+            "tag": "example.1"
+          }
+        ],
+        "relations": {},
+        "dateAdded": "2026-10-23T00:36:11Z",
+        "dateModified": "2026-10-23T00:37:20Z"
+      },
+      {
+        "key": "HEADING2",
+        "version": 0,
+        "itemType": "annotation",
+        "parentItem": "BBBB2222",
+        "annotationType": "highlight",
+        "annotationAuthorName": "",
+        "annotationText": "Chapter 2. A second heading",
+        "annotationComment": "",
+        "annotationColor": "#ffd400",
+        "annotationPageLabel": "11",
+        "annotationSortIndex": "00008|002177|00738",
+        "annotationPosition": {
+          "pageIndex": 8,
+          "rects": [
+            [
+              98.1,
+              640.2,
+              320.8,
+              662.0
+            ]
+          ]
+        },
+        "tags": [],
+        "relations": {},
+        "dateAdded": "2026-10-23T00:38:44Z",
+        "dateModified": "2026-10-23T00:39:02Z"
+      },
+      {
+        "key": "CONTENT3",
+        "version": 0,
+        "itemType": "annotation",
+        "parentItem": "BBBB2222",
+        "annotationType": "underline",
+        "annotationAuthorName": "",
+        "annotationText": "Closing passage without a comment.",
+        "annotationComment": "",
+        "annotationColor": "#ffd400",
+        "annotationPageLabel": "12",
+        "annotationSortIndex": "00009|000974|00484",
+        "annotationPosition": {
+          "pageIndex": 9,
+          "rects": [
+            [
+              98.1,
+              330.4,
+              401.2,
+              351.7
+            ]
+          ]
+        },
+        "tags": [],
+        "relations": {},
+        "dateAdded": "2026-10-23T00:40:15Z",
+        "dateModified": "2026-10-23T00:40:50Z"
+      }
+    ]
+  }
+]
